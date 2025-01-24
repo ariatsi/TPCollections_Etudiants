@@ -42,13 +42,31 @@ public class Cours {
         return meilleur;
     }
 
-    public void afficherEtudiantsParOrdreAlphabetiqueV1() {
-        Collections.sort(etudiants, new EtudiantComparator());
+    public void afficherEtudiants() {
         for (Etudiant etudiant : etudiants) {
             System.out.println(etudiant);
         }
     }
 
+    public void afficherEtudiantsParOrdreAlphabetiqueV1() {
+        ArrayList<Etudiant> etudiantsRestants = new ArrayList<>(etudiants); // Copie de la liste originale
+        Collections.sort(etudiantsRestants, new EtudiantComparator());
+        for (Etudiant etudiant : etudiantsRestants) {
+            System.out.println(etudiant);
+        }
+    }
+
+    /**
+     * Avantages
+     * Concept clair : Cette méthode est facile à comprendre, car elle suit une approche pas à pas pour construire une liste triée.
+     * Respect de l'original : La liste originale n'est pas modifiée directement (grâce à la copie etudiantsRestants).
+     *
+     * Inconvénients
+     * Complexité : Cette approche a une complexité en temps élevée : chaque recherche du plus petit est
+     * O(n), et cela est répété n fois, ce qui donne une complexité globale de O(n²).
+     *
+     * Utilisation de mémoire : Une copie de la liste originale est nécessaire.
+     */
     public void afficherEtudiantsParOrdreAlphabetiqueV2() {
         ArrayList<Etudiant> etudiantsTries = new ArrayList<>();
         ArrayList<Etudiant> etudiantsRestants = new ArrayList<>(etudiants); // Copie de la liste originale

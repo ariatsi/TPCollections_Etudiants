@@ -18,12 +18,18 @@ public class Main {
         cours.ajouterEtudiant(et2);
         cours.ajouterEtudiant(et3);
 
+        System.out.println("\nÉtudiants par ordre par defaut :");
+        cours.afficherEtudiants();
+
+        System.out.println("\nMeilleur étudiant: " + cours.trouverMeilleurEtudiant().toString());
+
         System.out.println("\nÉtudiants par ordre alphabétique (v1-Comparator) :");
         cours.afficherEtudiantsParOrdreAlphabetiqueV1();
         System.out.println("\nÉtudiants par ordre alphabétique (v2-Boucle) :");
         cours.afficherEtudiantsParOrdreAlphabetiqueV2();
 
-        System.out.println("\nMeilleur étudiant: " + cours.trouverMeilleurEtudiant().toString());
-
+        System.out.println("\nSupprimont l'étudiant '2' :");
+        cours.retirerEtudiant("2");
+        cours.afficherEtudiants();
     }
 }
